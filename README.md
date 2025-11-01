@@ -29,7 +29,37 @@ L'onglet validata permet de valider une table Grist avec un schéma au format Ta
 
 ## Documentation technique
 
-### Installation
+### Démarrage rapide avec Docker (Recommandé) 🐳
+
+La manière la plus simple de développer avec ce plugin est d'utiliser Docker :
+
+```bash
+# 1. Copier le fichier de configuration (première fois uniquement)
+cp env.dev .env
+# Puis éditez le fichier .env pour configurer VUE_APP_DATAGOUV_CLIENT_ID si nécessaire
+
+# 2. Lancer Grist + Plugin avec hot-reload
+docker-compose up -d
+
+# 3. Voir les logs
+docker-compose logs -f
+
+# 4. Arrêter
+docker-compose down
+```
+
+Le plugin sera accessible sur http://localhost:8080 et Grist sur http://localhost:8484
+
+**Hot-reload activé** : Les modifications dans `src/` sont automatiquement rechargées !
+
+
+### Installation locale (Alternative)
+
+Il faut au préalable lancer grist en local (par exemple avec docker)
+
+```
+docker run -p 8484:8484 -it gristlabs/grist
+```
 
 ```
 npm install
